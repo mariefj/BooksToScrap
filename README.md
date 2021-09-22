@@ -1,8 +1,9 @@
 ## Overview
 
 These scripts are designed to extract pricing information from the Books To Scrap bookstore : http://books.toscrape.com/
-The first script - book_scrap.py - extracts information from one book.
-The second script - category_scrap.py - extracts information from all books of one category.
+
+The first script - book_scrap.py - extracts information from one book.\
+The second script - category_scrap.py - extracts information from all books of one category.\
 The third script - website_scrap.py - extracts information from all books of the website, and also download the pictures of the products.
 
 ## Installation
