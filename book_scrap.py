@@ -2,9 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 
-# def extract_nb_str(str):
-# 	return [int(i) for i in str.split() if i.isdigit()]
-
 
 def extract_nb_str(str):
 	num = ""
@@ -42,6 +39,7 @@ def extract_product_data(url, soup):
 		image_url
 	]
 
+
 def load_data(file_name, header, data):
 	with open(file_name, 'w') as file_csv:
 		writer = csv.writer(file_csv, delimiter=',')
@@ -49,12 +47,16 @@ def load_data(file_name, header, data):
 		writer.writerow(data)
 
 
-def etl():
-	url = "http://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html"
+def get_soup(url):
 	reponse = requests.get(url)
 	page = reponse.content
 
-	soup = BeautifulSoup(page, "html.parser")
+	return BeautifulSoup(page, "html.parser")
+
+
+def etl():
+	url = "http://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html"
+	soup = get_soup(url)
 
 	header = [
 		"product_page_url",
@@ -70,6 +72,5 @@ def etl():
 	]
 	data = extract_product_data(url, soup)
 	load_data("csv/csv_book_scrap/book_scrap.csv", header, data)
-
 
 etl()
