@@ -70,4 +70,4 @@ def etl():
 		data.append(extract_product_data(url, soup))
 	load_data("csv/csv_category_scrap/category_scrap.csv", header, data)
 
-etl()
+# etl()

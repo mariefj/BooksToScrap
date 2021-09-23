@@ -73,4 +73,4 @@ def etl():
 	data = extract_product_data(url, soup)
 	load_data("csv/csv_book_scrap/book_scrap.csv", header, data)
 
-etl()
+# etl()
