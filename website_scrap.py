@@ -24,7 +24,6 @@ def extract_product_data(url, soup):
 	review_rating = soup.find("p", class_="star-rating")['class'][1]
 	image_url = soup.find("img", alt=title)["src"]
 
-
 	return [
 		url,
 		universal_product_code,
@@ -41,7 +40,6 @@ def extract_product_data(url, soup):
 
 def extract_nb_str(str):
 	num = ""
-
 	for char in str:
 		if char.isdigit():
 			num += char
@@ -87,7 +85,7 @@ def get_list_categories(soup, url):
 
 
 def load_data(file_name, header, data):
-	with open("csv/csv_website_scrap/" + file_name + ".csv", 'w') as file_csv:
+	with open("csv/" + file_name + ".csv", 'w') as file_csv:
 		writer = csv.writer(file_csv, delimiter=',')
 		writer.writerow(header)
 		for item in data:
